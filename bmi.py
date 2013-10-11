@@ -5,7 +5,10 @@ import sys
 from PyQt4.QtGui import *
 
 def bmicalc ( height, weight ):
-  return ( weight / pow(height/100.0,2) )
+  try:
+    return ( weight / pow(height/100.0,2) )
+  except ZeroDivisionError:
+    return 0
 
 class mainWindow ( QWidget ):
   def __init__ ( self, parent = None ):
